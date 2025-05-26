@@ -19,6 +19,8 @@ converterGson = "2.12.0"
 
 coil = "2.6.0"
 
+paging = "3.3.0"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -46,6 +48,9 @@ converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref
 
 # Coil
 coil = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+
+# Paging
+paging = { module = "androidx.paging:paging-compose", version.ref = "paging" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
