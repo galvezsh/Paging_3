@@ -7,6 +7,6 @@ data class CharacterModel(
     val type: String,
     val gender: String,
     val image: String,
-    val origin: String,
-    val location: String,
+    val origin: CharacterPlanetModel,
+    val location: CharacterPlanetModel,
 )

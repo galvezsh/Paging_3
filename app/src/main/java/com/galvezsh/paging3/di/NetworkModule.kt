@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 @InstallIn( SingletonComponent::class )
 object NetworkModule {
 
-    private const val BASE_URL = "https://rickandmortyapi.com/api/"
+    private const val BASE_URL = "https://rickandmortyapi.com/"
 
     @Provides
     fun provideOkHttpClient(): OkHttpClient = OkHttpClient.Builder().build()

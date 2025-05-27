@@ -10,8 +10,8 @@ data class CharacterResponse(
     @SerializedName("type") val type: String,
     @SerializedName("gender") val gender: String,
     @SerializedName("image") val image: String,
-    @SerializedName("origin") val origin: String,
-    @SerializedName("location") val location: String,
+    @SerializedName("origin") val origin: CharacterPlanetResponse,
+    @SerializedName("location") val location: CharacterPlanetResponse,
 ) {
     fun toMap(): CharacterModel {
         return CharacterModel(
@@ -21,8 +21,8 @@ data class CharacterResponse(
             type = type,
             gender = gender,
             image = image,
-            origin = origin,
-            location = location,
+            origin = origin.toMap(),
+            location = location.toMap(),
         )
     }
 }
