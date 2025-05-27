@@ -31,5 +31,4 @@ class CharacterPagingSource @Inject constructor( private val api: RickAndMortyAp
             LoadResult.Error( exception )
         }
     }
-
 }

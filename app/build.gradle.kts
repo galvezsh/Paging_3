@@ -5,6 +5,7 @@ plugins {
 
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlin.serializacion)
 }
 
 android {
@@ -74,4 +75,8 @@ dependencies {
 
     // Paging
     implementation(libs.paging)
+
+    // Navigation-compose
+    implementation(libs.navigation.compose)
+    implementation(libs.kotlinx.serliazation)
 }

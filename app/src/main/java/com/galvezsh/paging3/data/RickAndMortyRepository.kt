@@ -7,7 +7,7 @@ import com.galvezsh.paging3.presentation.model.CharacterModel
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class RickAndMortyRepository @Inject constructor( val api: RickAndMortyApiService ) {
+class RickAndMortyRepository @Inject constructor( private val api: RickAndMortyApiService ) {
 
     companion object {
         const val MAX_ITEMS = 10
@@ -23,5 +23,4 @@ class RickAndMortyRepository @Inject constructor( val api: RickAndMortyApiServic
             pagingSourceFactory = { CharacterPagingSource( api ) }
         ).flow
     }
-
 }

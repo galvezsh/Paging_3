@@ -1,4 +1,4 @@
-package com.galvezsh.paging3.presentation
+package com.galvezsh.paging3.presentation.mainScreen
 
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel

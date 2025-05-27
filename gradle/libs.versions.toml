@@ -19,7 +19,10 @@ converterGson = "2.12.0"
 
 coil = "2.6.0"
 
-paging = "3.3.0"
+paging = "3.3.6"
+
+navigationCompose = "2.9.0"
+kotlinxSerialization = "1.7.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -52,6 +55,10 @@ coil = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 # Paging
 paging = { module = "androidx.paging:paging-compose", version.ref = "paging" }
 
+# Navegation-compose
+navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
+kotlinx-serliazation = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
@@ -60,3 +67,6 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 # Dagger hilt
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+
+# Kotlin serialization
+kotlin-serializacion = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
