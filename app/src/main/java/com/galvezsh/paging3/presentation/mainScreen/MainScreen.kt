@@ -1,6 +1,7 @@
 package com.galvezsh.paging3.presentation.mainScreen
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -16,7 +17,7 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import com.galvezsh.paging3.presentation.model.CharacterModel
 
 @Composable
-fun MainScreen( mainViewModel: MainViewModel = hiltViewModel() ) {
+fun MainScreen( mainViewModel: MainViewModel = hiltViewModel(), selectedCharacterId: (Int) -> Unit ) {
 
     // Is important to use 'collectAsLazyPagingItems' because is gonna load always new characters when we scroll down in the screen
     val characters = mainViewModel.characters.collectAsLazyPagingItems()
@@ -26,19 +27,20 @@ fun MainScreen( mainViewModel: MainViewModel = hiltViewModel() ) {
 
             // Important to check that if there is no character in the 'it' position, simply do nothing
             characters[ it ]?.let { character ->
-                ItemList( character )
+                ItemList( character = character, sendId = { characterId -> selectedCharacterId( characterId ) } )
             }
         }
     }
 }
 
 @Composable
-fun ItemList( character: CharacterModel ) {
+fun ItemList( character: CharacterModel, sendId: (Int) -> Unit ) {
     Box( modifier = Modifier
         .fillMaxSize()
         .padding( 48.dp )
         .height( 200.dp )
         .background( Color.Black )
+        .clickable { sendId( character.id ) }
     ) {
         Text( text = character.name, color = Color.White )
     }

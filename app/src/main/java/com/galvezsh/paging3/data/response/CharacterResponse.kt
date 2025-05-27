@@ -4,7 +4,7 @@ import com.galvezsh.paging3.presentation.model.CharacterModel
 import com.google.gson.annotations.SerializedName
 
 data class CharacterResponse(
-    @SerializedName("id") val id: Short,
+    @SerializedName("id") val id: Int,
     @SerializedName("name") val name: String,
     @SerializedName("status") val status: String,
     @SerializedName("type") val type: String,

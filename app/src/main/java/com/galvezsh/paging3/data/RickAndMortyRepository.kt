@@ -3,8 +3,10 @@ package com.galvezsh.paging3.data
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
+import com.galvezsh.paging3.data.response.CharacterResponse
 import com.galvezsh.paging3.presentation.model.CharacterModel
 import kotlinx.coroutines.flow.Flow
+import okio.IOException
 import javax.inject.Inject
 
 class RickAndMortyRepository @Inject constructor( private val api: RickAndMortyApiService ) {
@@ -22,5 +24,14 @@ class RickAndMortyRepository @Inject constructor( private val api: RickAndMortyA
             ),
             pagingSourceFactory = { CharacterPagingSource( api ) }
         ).flow
+    }
+
+    suspend fun getCharacterById( id: Int ): CharacterResponse? {
+        return try {
+            api.getCharacterById( id )
+
+        } catch (e: Exception) {
+            null
+        }
     }
 }

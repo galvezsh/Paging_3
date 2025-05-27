@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.toRoute
 import com.galvezsh.paging3.presentation.detailScreen.DetailScreen
 import com.galvezsh.paging3.presentation.mainScreen.MainScreen
 
@@ -14,11 +15,15 @@ fun NavigationWrapper() {
     NavHost( navController = navController, startDestination = MainScreen ) {
 
         composable<MainScreen> {
-            MainScreen()
+            MainScreen(
+                selectedCharacterId = { characterId -> navController.navigate( DetailScreen( characterId ) ) }
+            )
         }
 
         composable<DetailScreen> {
-            DetailScreen()
+            DetailScreen(
+                characterId = it.toRoute<DetailScreen>().characterId
+            )
         }
 
     }
