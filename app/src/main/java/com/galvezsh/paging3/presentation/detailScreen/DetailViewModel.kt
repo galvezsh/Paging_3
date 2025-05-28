@@ -23,17 +23,29 @@ class DetailViewModel @Inject constructor( private val getCharacterByIdUseCase: 
     private val _error = MutableStateFlow( false )
     val error: StateFlow< Boolean > = _error
 
-    suspend fun loadId( id: Int ) {
-        _isLoading.value = true
-        val character = getCharacterByIdUseCase( id )
+    private var oneTimeExecution = false
 
-        if (character != null) {
-            _character.value = character.toMap()
-            _error.value = false
+    fun loadId( id: Int ) {
+        viewModelScope.launch {
+            _isLoading.value = true
+            val character = getCharacterByIdUseCase( id )
 
-        } else {
-            _error.value = true
+            if (character != null) {
+                _character.value = character.toMap()
+                _error.value = false
+
+            } else {
+                _error.value = true
+            }
+            _isLoading.value = false
         }
-        _isLoading.value = false
+    }
+
+    fun getOneTimeExecution(): Boolean {
+        return oneTimeExecution
+    }
+
+    fun setOneTimeExecution() {
+        oneTimeExecution = true
     }
 }
