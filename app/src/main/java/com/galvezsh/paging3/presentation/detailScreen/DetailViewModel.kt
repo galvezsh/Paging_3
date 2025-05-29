@@ -27,12 +27,12 @@ class DetailViewModel @Inject constructor( private val getCharacterByIdUseCase: 
 
     fun loadId( id: Int ) {
         viewModelScope.launch {
+            _error.value = false
             _isLoading.value = true
             val character = getCharacterByIdUseCase( id )
 
             if (character != null) {
                 _character.value = character.toMap()
-                _error.value = false
 
             } else {
                 _error.value = true

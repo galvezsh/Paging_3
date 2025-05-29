@@ -40,8 +40,8 @@ fun MainScreen( mainViewModel: MainViewModel = hiltViewModel(), selectedCharacte
     val characters = mainViewModel.characters.collectAsLazyPagingItems()
 
     Box( modifier = Modifier.fillMaxSize() ) {
-        Image( painter = painterResource(
-            id = R.drawable.portal ),
+        Image(
+            painter = painterResource( R.drawable.portal ),
             contentDescription = "Background portal",
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop
