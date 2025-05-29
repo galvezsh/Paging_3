@@ -8,5 +8,5 @@ import javax.inject.Inject
 
 class GetAllCharactersFlowUseCase @Inject constructor( val rickAndMortyRepository: RickAndMortyRepository ) {
 
-    operator fun invoke(): Flow<PagingData< CharacterModel >> = rickAndMortyRepository.getAllCharacters()
+    operator fun invoke( name: String? ): Flow<PagingData< CharacterModel >> = rickAndMortyRepository.getAllCharacters( name )
 }
